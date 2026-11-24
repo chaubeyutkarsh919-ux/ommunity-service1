@@ -1,0 +1,291 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   FUTUREPATHS DESIGN SYSTEM: CSS VARIABLE THEME ENGINE
+   Default: Obsidian + Cyan Accent (Developer-tool SaaS Aesthetic)
+   Variants: Slate + Electric Blue, Charcoal + Emerald, Light
+   ========================================================================== */
+
+:root {
+  /* Default Theme: Obsidian + Cyan */
+  --bg-base: #0C0C0E;
+  --bg-card: #16161A;
+  --bg-card-subtle: #1F1F26;
+  --border-subtle: #27272C;
+  --border-hover: #3E3E47;
+
+  --text-primary: #F2F2F3;
+  --text-secondary: #9A9AA0;
+  --text-muted: #6B6B74;
+
+  --accent-primary: #38BDF8;
+  --accent-primary-hover: #0EA5E9;
+  --accent-bg: #0E2333;
+  --accent-border: #1E3A52;
+  --accent-text: #38BDF8;
+  --accent-contrast: #0C0C0E;
+  --accent-glow: rgba(56, 189, 248, 0.15);
+
+  --success-bg: #0F2A1A;
+  --success-border: #1B4D2E;
+  --success-text: #4ADE80;
+
+  --danger-bg: #2A1215;
+  --danger-border: #4D1F24;
+  --danger-text: #F87171;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Variant 1: Slate + Electric Blue */
+[data-theme="electric"] {
+  --bg-base: #0A0F1D;
+  --bg-card: #111927;
+  --bg-card-subtle: #182337;
+  --border-subtle: #1E293B;
+  --border-hover: #334155;
+
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+
+  --accent-primary: #3B82F6;
+  --accent-primary-hover: #2563EB;
+  --accent-bg: #101E38;
+  --accent-border: #1E3560;
+  --accent-text: #60A5FA;
+  --accent-contrast: #FFFFFF;
+  --accent-glow: rgba(59, 130, 246, 0.18);
+
+  --success-bg: #0F2A1A;
+  --success-border: #1B4D2E;
+  --success-text: #4ADE80;
+
+  --danger-bg: #2A1215;
+  --danger-border: #4D1F24;
+  --danger-text: #F87171;
+}
+
+/* Variant 2: Charcoal + Emerald */
+[data-theme="emerald"] {
+  --bg-base: #0B0E0C;
+  --bg-card: #131915;
+  --bg-card-subtle: #1B231E;
+  --border-subtle: #1F2B22;
+  --border-hover: #2C3E31;
+
+  --text-primary: #F2F5F3;
+  --text-secondary: #95A39A;
+  --text-muted: #65746A;
+
+  --accent-primary: #10B981;
+  --accent-primary-hover: #059669;
+  --accent-bg: #0F2A1A;
+  --accent-border: #1B4D2E;
+  --accent-text: #34D399;
+  --accent-contrast: #0B0E0C;
+  --accent-glow: rgba(16, 185, 129, 0.18);
+
+  --success-bg: #0F2A1A;
+  --success-border: #1B4D2E;
+  --success-text: #4ADE80;
+
+  --danger-bg: #2A1215;
+  --danger-border: #4D1F24;
+  --danger-text: #F87171;
+}
+
+/* Light Mode Fallback */
+[data-theme="light"] {
+  --bg-base: #F5F7FB;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #F5F7FB;
+  --border-subtle: #E5E7EB;
+  --border-hover: #BFD5FD;
+
+  --text-primary: #2E2E2E;
+  --text-secondary: #545454;
+  --text-muted: #8C8C8C;
+
+  --accent-primary: #2E5AAC;
+  --accent-primary-hover: #4475D1;
+  --accent-bg: #EEF4FF;
+  --accent-border: #BFD5FD;
+  --accent-text: #2E5AAC;
+  --accent-contrast: #FFFFFF;
+  --accent-glow: rgba(46, 90, 172, 0.10);
+
+  --success-bg: #DCFCE7;
+  --success-border: #BBF7D0;
+  --success-text: #15803D;
+
+  --danger-bg: #FFF1F2;
+  --danger-border: #FECDD3;
+  --danger-text: #BE123C;
+}
+
+/* ==========================================================================
+   BASE & TYPOGRAPHY STYLES
+   ========================================================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+  }
+  
+  body {
+    -webkit-tap-highlight-color: transparent;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    transition: background-color 250ms ease, color 250ms ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+  }
+
+  /* Accessible focus ring using theme accent */
+  :focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+}
+
+/* Custom dark scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 9999px;
+  border: 2px solid var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
+/* Ticker marquee animation */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  display: flex;
+  width: max-content;
+  animation: ticker 35s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* ==========================================================================
+   SAAS DASHBOARD SURFACE & CARD UTILITIES
+   ========================================================================== */
+
+.dark-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+.dark-card-interactive {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.dark-card-interactive:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-hover);
+  box-shadow: 0 4px 24px -2px var(--accent-glow);
+}
+
+/* Button & Badge Utilities */
+.btn-primary-accent {
+  background-color: var(--accent-primary);
+  color: var(--accent-contrast);
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 200ms ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary-accent:hover {
+  background-color: var(--accent-primary-hover);
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+
+.btn-primary-accent:active {
+  transform: scale(0.97);
+}
+
+.btn-secondary-outline {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  transition: all 200ms ease;
+}
+
+.btn-secondary-outline:hover {
+  border-color: var(--border-hover);
+  background-color: var(--bg-card-subtle);
+  color: var(--text-primary);
+}
+
+.btn-secondary-outline:active {
+  transform: scale(0.97);
+}
+
+.badge-accent {
+  background-color: var(--accent-bg);
+  color: var(--accent-text);
+  border: 1px solid var(--accent-border);
+}
+
+.badge-success {
+  background-color: var(--success-bg);
+  color: var(--success-text);
+  border: 1px solid var(--success-border);
+}
+
+/* Background Radial Grid Glow */
+.dark-radial-glow {
+  background-image: radial-gradient(circle at top right, var(--accent-glow), transparent 50%),
+                    radial-gradient(circle at bottom left, rgba(22, 22, 26, 0.4), transparent 50%);
+}
+
+/* Print specific styles */
+@media print {
+  header, footer, .no-print, button:not(.print-include) {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .print-page {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    page-break-inside: avoid;
+  }
+}

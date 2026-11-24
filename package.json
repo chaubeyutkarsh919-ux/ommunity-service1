@@ -1,0 +1,14 @@
+{
+  "name": "community-services-root",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix frontend run preview",
+    "backend": "cd backend && venv/bin/python app.py",
+    "frontend": "npm --prefix frontend run dev"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

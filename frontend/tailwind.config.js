@@ -1,0 +1,73 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        theme: {
+          base: 'var(--bg-base)',
+          card: 'var(--bg-card)',
+          'card-subtle': 'var(--bg-card-subtle)',
+          border: 'var(--border-subtle)',
+          'border-hover': 'var(--border-hover)',
+          primary: 'var(--text-primary)',
+          secondary: 'var(--text-secondary)',
+          muted: 'var(--text-muted)',
+          accent: 'var(--accent-primary)',
+          'accent-hover': 'var(--accent-primary-hover)',
+          'accent-bg': 'var(--accent-bg)',
+          'accent-border': 'var(--accent-border)',
+          'accent-text': 'var(--accent-text)',
+          'success-bg': 'var(--success-bg)',
+          'success-border': 'var(--success-border)',
+          'success-text': 'var(--success-text)',
+        },
+        brand: {
+          50: '#EEF4FF',
+          100: '#DBE8FE',
+          200: '#BFD5FD',
+          300: '#93B9FA',
+          400: '#6195F4',
+          500: '#4475D1',
+          600: '#2E5AAC',
+          700: '#24488D',
+          800: '#1E3B72',
+          900: '#1B325D',
+          950: '#121F3A',
+          DEFAULT: '#2E5AAC',
+          hover: '#4475D1',
+          tint: '#EEF4FF',
+        },
+        pca: {
+          primary: '#2E5AAC',
+          secondary: '#4475D1',
+          tint: '#EEF4FF',
+          charcoal: '#2E2E2E',
+          graphite: '#545454',
+          microcopy: '#8C8C8C',
+          border: '#E5E7EB',
+          canvas: '#F5F7FB',
+          card: '#FFFFFF',
+        },
+        charcoal: '#2E2E2E',
+        graphite: '#545454',
+        canvas: '#F5F7FB',
+        surface: '#FFFFFF',
+      },
+      fontFamily: {
+        sans: ["'Inter'", '-apple-system', 'BlinkMacSystemFont', "'Segoe UI'", 'Roboto', 'sans-serif'],
+      },
+      boxShadow: {
+        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.25)',
+        'card': '0 4px 20px -2px rgba(0, 0, 0, 0.35)',
+        'card-hover': '0 8px 30px -4px var(--accent-glow)',
+        'elevated': '0 12px 32px -4px rgba(0, 0, 0, 0.5)',
+        'glow': '0 0 20px -2px var(--accent-glow)',
+      }
+    },
+  },
+  plugins: [],
+}
